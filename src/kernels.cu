@@ -176,7 +176,7 @@ __global__ void flashAttentionKernel(const T* q, const T* k, const T* v, T* o,
 
   const float scale = 1.0f / sqrtf(static_cast<float>(head_dim));
 
-  float max_score = -CUDART_INF_F;
+  float max_score = -INFINITY;
   const size_t q_base = ((static_cast<size_t>(b) * target_seq_len + t) * query_heads + qh) * head_dim;
   for (int d = 0; d < head_dim; ++d) {
     acc[d] = 0.0f;
